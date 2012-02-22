@@ -1,0 +1,16 @@
+"Gamemode"
+{
+    "name"  "SimpleRP"
+    "version"   "0.1"
+
+    "author_name"   "Marmotte Unijambiste, Frozen"
+
+    "icon"  ""
+    "info"  ""
+    "hide"  "0"
+
+	"mappattern"
+	{
+		"1"		"^rp_"
+	}
+}
