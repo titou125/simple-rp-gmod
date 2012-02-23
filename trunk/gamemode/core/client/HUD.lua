@@ -1,48 +1,76 @@
 --[[
 	HUD!!!!
-]]--
-function GM:HUDPaint()
-	local HP = LocalPlayer():Health()
-	local AM = LocalPlayer():Armor()
-	local FA  = 0
-	local FM  = false -- Mode de faim!
+]]
+function DrawBox()
+	local Health = LocalPlayer():Health()
+	local Armor = LocalPlayer():Armor()
+	local Hunger  = 0
+	local HungerModEnabled  = false -- Mode de Hungerim!
 	
-	if HP < 1 then HP = 0 end	
-	if AM < 1 then AM = 0 end
+	local Job = --[[LocalPlayer():GetTable().SimpleRP.Job.Name]] "jobz"
+	local JobColor = --[[LocalPlayer():GetTable().SimpleRP.Job.Color]] Color(255,0,255,255)
+	if Health < 1 then Health = 0 end	
+	if Armor < 1 then Armor = 0 end
 	
-	if HP > 100 then HP = 100 end	
-	if AM > 100 then AM = 100 end
+	if Health > 100 then Health = 100 end	
+	if Armor > 100 then Armor = 100 end
 	
 	
 	if LocalPlayer():Alive() then
-		--Boit!
-		draw.RoundedBox( 8, 5, ScrH()-105, 250, 100, Color(0, 0, 0, 180) );
+	
+		--Métier
+		draw.SimpleText("Job:","Trebuchet24",30,ScrH()-100,Color(255,255,255,255))
+		draw.SimpleText(Job,"Trebuchet24",80,ScrH()-100,JobColor)
+	
+		--Boite!
+		draw.RoundedBox( 8, 5, ScrH()-105, 250, 100, Color(0, 0, 0, 180) )
 		
 		--Barre de vie!
-		draw.RoundedBox( 1, 30, ScrH()-85, 200, 18, Color(80, 80, 80, 255) );
-		if HP>0 then
-			draw.RoundedBox( 1, 30, ScrH()-85, 2*HP, 18, Color(255-2.55*HP, 2.55*HP, 0, 255) );
+		-- draw.TexturedQuad({ 
+			-- texture = surface.GetTextureID("gui/silkicons/heart"),		UGLY
+			-- color = Color(255, 255, 255, 255),
+			-- x = 10,
+			-- y = ScrH() - 65,
+			-- w = 18,
+			-- h = 18
+		-- })
+		draw.RoundedBox( 1, 30, ScrH()-65, 200, 18, Color(80, 80, 80, 255) )
+		
+		if Health>0 then
+			draw.RoundedBox( 1, 30, ScrH()-65, 2*Health, 18, Color(255-2.55*Health, 2.55*Health, 0, 255) )
 		end
 		
 		--Barre d'armure!
-		draw.RoundedBox( 1, 30, ScrH()-64, 200, 18, Color(80, 80, 80, 255) );
-		if AM>0 then
-			draw.RoundedBox( 1, 30, ScrH()-64, 2*AM, 18, Color(0, 0, 255, 255) );
+		
+		-- draw.TexturedQuad({ 
+			-- texture = surface.GetTextureID("gui/silkicons/shield"),		UGLY
+			-- color = Color(255, 255, 255, 255),
+			-- x = 10,
+			-- y = ScrH() - 44,
+			-- w = 18,
+			-- h = 18
+		-- })
+		
+		draw.RoundedBox( 1, 30, ScrH()-44, 200, 18, Color(80, 80, 80, 255) )
+		if Armor>0 then
+			draw.RoundedBox( 1, 30, ScrH()-44, 2*Armor, 18, Color(0, 0, 255, 255) )
 		end
 		
 		--Barre de faim!
-		if FM == true then -- Mode de faim!
-			draw.RoundedBox( 1, 30, ScrH()-43, 200, 18, Color(80, 80, 80, 255) );
-			if FA>0 then
-				draw.RoundedBox( 1, 30, ScrH()-43, 2*FA, 18, Color(150, 0, 255, 255) );
+		if HungerModEnabled then -- Mode de faim!
+			draw.RoundedBox( 1, 30, ScrH()-23, 200, 18, Color(80, 80, 80, 255) )
+			if Hunger>0 then
+				draw.RoundedBox( 1, 30, ScrH()-23, 2*Hunger, 18, Color(150, 0, 255, 255) )
 			end
 		end
 	end
 end
+hook.Add("HUDPaint", "DrawBox", DrawBox)
 
 
-function GM:HUDShouldDraw( name )
+local function HideThings( name )
 	if(name == "CHudHealth") or (name == "CHudBattery") then
              return false
         end
 end
+hook.Add( "HUDShouldDraw", "HideThings", HideThings )
