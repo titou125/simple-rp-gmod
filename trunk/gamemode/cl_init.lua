@@ -1,7 +1,3 @@
-include( 'shared.lua' )
+include( "shared.lua" )
 
-function GM:HUDDrawScoreBoard( )
-
-
-
-end
+include("core/client/scoreboard.lua")
