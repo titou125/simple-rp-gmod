@@ -12,13 +12,17 @@ function GM:HUDDrawScoreBoard()
 	
 	draw.RoundedBox(4,x,y,width,height,Color(125,125,125,125))
 	
+	//draw.
+	
 	return false
 end
 
 function GM:ScoreboardShow()
 	self.ScoreboardShouldShow = true
+	--gui.EnableScreenClicker(true) FUCKED
 end
 
 function GM:ScoreboardHide()
 	self.ScoreboardShouldShow = false
+	--gui.EnableScreenClicker(true) FUCKED
 end
