@@ -17,6 +17,8 @@ AddCSLuaFile("core/client/HUD.lua")
 	end
 end ]]
 
+SimpleRP = {}
+
 function GM:Initialize()
 	print("SimpleRP enabled")
 end
