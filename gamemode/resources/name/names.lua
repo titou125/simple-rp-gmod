@@ -1,3 +1,6 @@
+
+SimpleRP.Names = {}
+
 SimpleRP.Names.Male={
 	"Aaron",
 	"Abba",
