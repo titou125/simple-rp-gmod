@@ -61,7 +61,7 @@ function DrawBox()
 		if HungerModEnabled then -- Mode de faim!
 			draw.RoundedBox( 1, 30, ScrH()-23, 200, 10, Color(80, 80, 80, 255) )
 			if Hunger>0 then
-				draw.RoundedBox( 1, 30, ScrH()-23, 2*Hunger, 18, Color(150, 0, 255, 255) )
+				draw.RoundedBox( 1, 30, ScrH()-23, 2*Hunger, 10, Color(150, 0, 255, 255) )
 			end
 		end
 	end
