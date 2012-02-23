@@ -19,10 +19,10 @@ end
 
 function GM:ScoreboardShow()
 	self.ScoreboardShouldShow = true
-	--gui.EnableScreenClicker(true) FUCKED
+	gui.EnableScreenClicker(true) FUCKED
 end
 
 function GM:ScoreboardHide()
 	self.ScoreboardShouldShow = false
-	--gui.EnableScreenClicker(true) FUCKED
+	gui.EnableScreenClicker(false) FUCKED
 end
