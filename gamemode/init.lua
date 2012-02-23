@@ -1,5 +1,5 @@
 AddCSLuaFile("core/client/scoreboard.lua")
 
-GM:Initialize()
+function GM:Initialize()
 	print(GM.Name.." enabled")
 end
