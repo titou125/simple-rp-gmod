@@ -1,6 +1,6 @@
 
 GM.Name 	= "SimpleRP"
-GM.Author 	= "Marmotte Unijambiste, Frozen"
+GM.Author 	= "Marmotte Unijambiste, Frozen, Super Patate"
 GM.Email 	= "N/A"
 GM.Website 	= "N/A"
 
