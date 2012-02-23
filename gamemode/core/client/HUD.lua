@@ -1,7 +1,7 @@
 --[[
 	HUD!!!!
 ]]--
-function DrawBox()
+function GM:HUDPaint()
 	local HP = LocalPlayer():Health()
 	local AM = LocalPlayer():Armor()
 	local FA  = 0
@@ -39,12 +39,10 @@ function DrawBox()
 		end
 	end
 end
-hook.Add("HUDPaint", "DrawBox", DrawBox)
 
 
-local function HideThings( name )
+function GM:HUDShouldDraw( name )
 	if(name == "CHudHealth") or (name == "CHudBattery") then
              return false
         end
 end
-hook.Add( "HUDShouldDraw", "HideThings", HideThings )
