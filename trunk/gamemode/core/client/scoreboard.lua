@@ -1,7 +1,7 @@
 --[[
 
 ]]--
-function GM:HUDDrawScoreBoard()
+GM:HUDDrawScoreBoard()
 	
 	
 	
