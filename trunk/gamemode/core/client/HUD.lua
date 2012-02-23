@@ -25,31 +25,32 @@ function DrawBox()
 		--Boite!
 		draw.RoundedBox( 8, 5, ScrH()-105, 250, 100, Color(0, 0, 0, 180) )
 		
-		--Barre de vie!
-		-- draw.TexturedQuad({ 
-			-- texture = surface.GetTextureID("gui/silkicons/heart"),		UGLY
-			-- color = Color(255, 255, 255, 255),
-			-- x = 10,
-			-- y = ScrH() - 65,
-			-- w = 18,
-			-- h = 18
-		-- })
+		--[[Barre de vie!
+		
+		draw.TexturedQuad({ 
+			texture = surface.GetTextureID("gui/silkicons/heart"),		UGLY
+			color = Color(255, 255, 255, 255),
+			x = 10,
+			y = ScrH() - 65,
+			w = 18,
+			h = 18
+		})]]--
 		draw.RoundedBox( 1, 30, ScrH()-65, 200, 18, Color(80, 80, 80, 255) )
 		
 		if Health>0 then
 			draw.RoundedBox( 1, 30, ScrH()-65, 2*Health, 18, Color(255-2.55*Health, 2.55*Health, 0, 255) )
 		end
 		
-		--Barre d'armure!
+		--[[Barre d'armure!
 		
-		-- draw.TexturedQuad({ 
-			-- texture = surface.GetTextureID("gui/silkicons/shield"),		UGLY
-			-- color = Color(255, 255, 255, 255),
-			-- x = 10,
-			-- y = ScrH() - 44,
-			-- w = 18,
-			-- h = 18
-		-- })
+		draw.TexturedQuad({ 
+			texture = surface.GetTextureID("gui/silkicons/shield"),		UGLY
+			color = Color(255, 255, 255, 255),
+			x = 10,
+			y = ScrH() - 44,
+			w = 18,
+			h = 18
+		})]]--
 		
 		draw.RoundedBox( 1, 30, ScrH()-44, 200, 18, Color(80, 80, 80, 255) )
 		if Armor>0 then
@@ -58,7 +59,7 @@ function DrawBox()
 		
 		--Barre de faim!
 		if HungerModEnabled then -- Mode de faim!
-			draw.RoundedBox( 1, 30, ScrH()-23, 200, 18, Color(80, 80, 80, 255) )
+			draw.RoundedBox( 1, 30, ScrH()-23, 200, 10, Color(80, 80, 80, 255) )
 			if Hunger>0 then
 				draw.RoundedBox( 1, 30, ScrH()-23, 2*Hunger, 18, Color(150, 0, 255, 255) )
 			end
